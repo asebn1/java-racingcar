@@ -10,10 +10,10 @@ public class Validation {
     private static final String ERROR_NAME_LENGTH = "[ERROR] 이름은 1자 이상, 5자 이하여야 합니다";
     private static final String ERROR_ONLY_NUMBER = "[ERROR] 시도 회수는 숫자만 입력 가능합니다";
 
-    public static void carNameValidation(String names) {
-        List<String> namesList = Arrays.asList(names.split(SPLIT_DELIM, -1));
+    public static void carNameValidation(String input) {
+        List<String> names = Arrays.asList(input.split(SPLIT_DELIM, -1));
 
-        for (String name : namesList) {
+        for (String name : names) {
             checkNameLength(name);
         }
     }

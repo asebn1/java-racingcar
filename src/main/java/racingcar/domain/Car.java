@@ -30,15 +30,4 @@ public class Car {
             position += 1;
         }
     }
-
-    @Override
-    public String toString() {
-        String info = getName() + INFO_BETWEEN_WORD;
-
-        for (int i = 0; i < position; i++) {
-            info += POSITION_WORD;
-        }
-
-        return info;
-    }
 }
