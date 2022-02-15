@@ -3,8 +3,6 @@ package racingcar.domain;
 import java.util.Random;
 
 public class Car {
-    private static final String INFO_BETWEEN_WORD = " : ";
-    private static final String POSITION_WORD = "-";
     private static final int RANDOM_MAX_RANGE = 10;
     private static final int RANDOM_CONDITION = 4;
 
