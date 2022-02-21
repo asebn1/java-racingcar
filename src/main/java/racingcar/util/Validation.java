@@ -43,7 +43,7 @@ public class Validation {
         }
     }
 
-    public static void tryNumValidation(final String tryValue) {
+    public static void checkTryNumValidation(final String tryValue) {
         checkIsBlank(tryValue);
         for (char num : tryValue.toCharArray()) {
             checkCharIsNum(num);
@@ -54,5 +54,9 @@ public class Validation {
         if (!Character.isDigit(num)) {
             throw new IllegalArgumentException(ERROR_ONLY_NUMBER);
         }
+    }
+
+    public static void checkPositionValidation(final String tryValue) {
+        checkTryNumValidation(tryValue);
     }
 }

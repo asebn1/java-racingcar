@@ -48,11 +48,4 @@ public class CarControllerTest {
         assertThat(outContent.toString()).contains("two : --");
         assertThat(outContent.toString()).contains("three : ---");
     }
-
-
-    @Test
-    void 우승자_검증() {
-        Output.printWinner(new Cars(cars).getWinners());
-        assertThat(outContent.toString()).contains("three가 최종 우승했습니다.");
-    }
 }

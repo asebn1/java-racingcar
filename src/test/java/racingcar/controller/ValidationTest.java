@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -29,7 +28,7 @@ public class ValidationTest {
     @ParameterizedTest
     @ValueSource(strings = {"q", "qwerasdfzxcv", "qq23", "aaa", "-5"})
     void 게임_회수_입력_오류검증(String value) {
-        assertThatThrownBy(() -> Validation.tryNumValidation(value))
+        assertThatThrownBy(() -> Validation.checkTryNumValidation(value))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(Validation.ERROR_ONLY_NUMBER);
     }
@@ -38,7 +37,7 @@ public class ValidationTest {
     @ValueSource(strings = {"5", "10", "20"})
     void 게임_회수_입력_참검증(String value) {
         assertThatNoException()
-                .isThrownBy(() -> Validation.tryNumValidation(value));
+                .isThrownBy(() -> Validation.checkTryNumValidation(value));
     }
 
     @Test
@@ -58,7 +57,7 @@ public class ValidationTest {
     @ParameterizedTest
     @NullAndEmptySource
     void 게임_빈값_검증(String value){
-        assertThatThrownBy(() -> Validation.tryNumValidation(value))
+        assertThatThrownBy(() -> Validation.checkTryNumValidation(value))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

@@ -8,15 +8,14 @@ public class Car {
     private final String name;
     private int position = 0;
 
-    public Car(String name) {
+    public Car(final String name) {
         Validation.carNameValidation(name);
         this.name = name;
     }
 
     public Car(final String name, final int position) {
-        Validation.carNameValidation(name);
-        Validation.tryNumValidation(Integer.toString(position));
-        this.name = name;
+        this(name);
+        Validation.checkPositionValidation(Integer.toString(position));
         this.position = position;
     }
 

@@ -43,4 +43,8 @@ public class Output {
     public static void printResultWord() {
         System.out.println(PRINT_RESULT);
     }
+
+    public static void printErrorMessage(String message) {
+        System.out.println(message);
+    }
 }

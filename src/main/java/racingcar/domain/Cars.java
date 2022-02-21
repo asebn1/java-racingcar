@@ -2,8 +2,11 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
+    private static final String SPLIT_DELIM = ",";
+
     private List<Car> cars;
 
     public Cars(final List<Car> cars) {
@@ -28,14 +31,27 @@ public class Cars {
     }
 
     public List<String> getWinners() {
-        List<String> winners = new ArrayList<>();
-        cars.stream()
+        return cars.stream()
                 .filter(car -> car.checkIfPositionSame(getMaxPosition()))
-                .forEach(car -> winners.add(car.getName()));
-        return winners;
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    public static List<Car> createCars(final String names) {
+        List<Car> cars = new ArrayList<>();
+        for (String carName : names.split(SPLIT_DELIM, -1)) {
+            cars.add(new Car(carName));
+        }
+        return cars;
+    }
+
+    public void move() {
+        for (Car car : cars) {
+            car.goForward(RandomNum.getRandomNum());
+        }
     }
 }
